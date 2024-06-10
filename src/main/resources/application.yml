@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: oauth
+  security:
+    oauth2:
+      resource-server:
+        jwt:
+          issuer-uri: http://localhost:8081/realms/oauth2
+          jwk-set-uri: ${spring.security.oauth2.resource-server.jwt.issuer-uri}/protocol/openid-connect/certs
+jwt:
+  auth:
+    converter:
+      resource-id: oauth2
+      principle-attribute: preferred_username
